@@ -5,18 +5,15 @@ using UnityEngine;
 public class CoroutineVariable {
     public Coroutine coroutine { get; private set; }
     public object result;
-    private IEnumerator target;
-    public CoroutineVariable(MonoBehaviour owner, IEnumerator target)
-    {
-        this.target = target;
-        this.coroutine = owner.StartCoroutine(Run());
+    private IEnumerator action;
+    public CoroutineVariable(MonoBehaviour INSPECTING_OWNER, IEnumerator ACTION) {
+        action = ACTION;
+        coroutine = INSPECTING_OWNER.StartCoroutine(Run());
     }
 
-    private IEnumerator Run()
-    {
-        while (target.MoveNext())
-        {
-            result = target.Current;
+    private IEnumerator Run() {
+        while ( action.MoveNext() ) {
+            result = action.Current;
             yield return result;
         }
     }

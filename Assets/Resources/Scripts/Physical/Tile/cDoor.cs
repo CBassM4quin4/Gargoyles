@@ -13,8 +13,7 @@ public class cDoor : cTile {
                 cItem KEY_RING_ITEM = PLAYER_OTHER.Inventory.FindItem<cKey>();
                 if (KEY_RING_ITEM != null) {
                     cKey KEY_RING = KEY_RING_ITEM.GetComponent<cKey>();
-                    if (KEY_RING.charges > 0)
-                    {
+                    if (KEY_RING.charges > 0) {
                         print("UNLOCKED");
                         KEY_RING.Activate();
                         Unlock();
@@ -22,11 +21,10 @@ public class cDoor : cTile {
                     }
                 }
                 print("The door is locked. You need a key!");
-                return true;
             }
-            else { return true; }
         }
-        return false;
+        // Default case is to block unless otherwise returned blocking as false
+        return true;
     }
     private void Unlock() {
         bLocked = false;

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class cGamePiece : MonoBehaviour {
-
 	public enum eObjectType{
 		//Non-physical
 		Undefined,
@@ -23,8 +22,4 @@ public class cGamePiece : MonoBehaviour {
 		Item
 	}
 	public eObjectType objectType;
-
-    // Use this for initialization
-    virtual protected void Start () {}
-    virtual protected void Update() {}
 }
